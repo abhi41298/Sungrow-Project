@@ -1,0 +1,127 @@
+<div class="container">
+    <form action="/{{role}}/add/addProducts" method="post"
+        class="login100-form validate-form flex-sb flex-w p-b-90 p-t-50">
+        <div class="row ">
+            <div class="col">
+                <span class="login100-form-title p-b-51">
+                    Add New Products
+                </span>
+            </div>
+        </div>
+        <div id="productDetailDiv">
+            <div class="row p-t-20 p-b-35">
+                <div class="container-fluid border-alt p-t-20 p-b-20">
+                    
+                    <div class="container">
+                        <div class="row" style="overflow:scroll; ">
+                            <div class="col-lg-6 col-md-6 col-sm-12" style="min-width:280px;">
+                                <div class="text-left">
+                                    Serial Number:
+                                </div>
+                                <div class="wrap-input100 validate-input m-b-16">
+                                    <input class="input100" type="text" id="serial" name="serialNumber" required
+                                        placeholder="SERIAL NUMBER">
+                                        <span class="focus-input100"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12" style="min-width:280px;">
+                                <div class="text-left">
+                                    Product Catergory:
+                                </div>
+                                <div class="wrap-input100 validate-input m-b-16">
+                                    <select class="input100" id="category" name="category">
+                                        <option value="INV">INVERTER</option>
+                                        <option value="DL">DATA LOGGER</option>
+                                        <option value="ESS">STORAGE INVERTER</option>
+                                        <option value="ACS">ACCESSORIES</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12" style="min-width:280px;">
+                                <div class="text-left">
+                                    Model:
+                                </div>
+                                <div class="wrap-input100 validate-input m-b-16">
+                                    <input class="input100" type="text" id="model" name="model" required
+                                        placeholder="PRODUCT MODEL" autocomplete="on">
+                                        <span class="focus-input100"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12" style="min-width:280px;">
+                                <div class="text-left">
+                                    SG Reference Date:
+                                </div>
+                                <div class="wrap-input100 validate-input m-b-16">
+                                    <input class="input100" type="text" name="sgReferenceDate" id="refDate">
+                                    <span class="focus-input100"></span>
+                                    <script>
+                                        $(function () {
+                                            $('#refDate').daterangepicker({
+                                                locale: { format: "DD MMMM YYYY" },
+                                                opens: "center",
+                                                singleDatePicker: true,
+                                                showDropdowns: true,
+                                                minYear: 1980,
+                                                maxYear: parseInt(moment().format("YYYY"), 10),
+                                                maxDate: moment()
+                                            });
+                                        });
+                                    </script>
+
+
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12" style="min-width:280px;">
+                                <div class="text-left">
+                                    Warranty Tenure:
+                                </div>
+                                <div class="wrap-input100 validate-input m-b-16">
+                                    <input class="input100" type="number" id="warranty_tenure" name="warranty_tenure"
+                                        required placeholder="TENURE (in Months)">
+                                        <span class="focus-input100"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="row p-b-30" style="width: 100%;">
+            <div class="col-6 offset-3">
+                <div class="container-login100-form-btn">
+                    <input type="button" class="login100-form-btn login100-form-btn-alt"
+                        onclick="addNewProductField();" value="Add More" />
+                </div>
+                
+            </div>
+        </div>
+        <div class="row container content-justify-center">
+            <div class="container-login100-form-btn">
+                <button class="login100-form-btn m-t-17">
+                    Add New Products
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+<script type="text/javascript">
+    var i = 1;
+    function addNewProductField() {
+        var additonalProduct = document.createElement('div');
+        additonalProduct.setAttribute('id','product'+i)
+        additonalProduct.className = 'row p-b-35'
+        additonalProduct.innerHTML = '<div class="container-fluid border-alt p-t-20 p-b-20"><div class="text-right close-icon d-inline-flex float-right" onclick="removeProductField(\'product' + i + '\');"><span class="fa fa-close fa-2x"></span></div><div class="container"><div class="row" style="overflow:scroll; "><div class="col-lg-6 col-md-6 col-sm-12" style="min-width:280px;"><div class="text-left">Serial Number:</div><div class="wrap-input100 validate-input m-b-16"><input class="input100" type="text" id="serial" name="serialNumber" required placeholder="SERIAL NUMBER"><span class="focus-input100"></span></div></div><div class="col-lg-6 col-md-6 col-sm-12" style="min-width:280px;"><div class="text-left">Product Catergory:</div><div class="wrap-input100 validate-input m-b-16"><select class="input100" id="category" name="category"><option value="INV">INVERTER</option><option value="DL">DATA LOGGER</option><option value="ESS">STORAGE INVERTER</option><option value="ACS">ACCESSORIES</option></select></div></div><div class="col-lg-6 col-md-6 col-sm-12" style="min-width:280px;"><div class="text-left">Model:</div><div class="wrap-input100 validate-input m-b-16"><input class="input100" type="text" id="model" name="model" required placeholder="PRODUCT MODEL" autocomplete="on"><span class="focus-input100"></span></div></div><div class="col-lg-6 col-md-6 col-sm-12" style="min-width:280px;"><div class="text-left">SG Reference Date:</div><div class="wrap-input100 validate-input m-b-16"><input class="input100" type="text" name="sgReferenceDate" id="refDate' + i + '"> <span class="focus-input100"></span></div></div><div class="col-lg-6 col-md-6 col-sm-12" style="min-width:280px;"><div class="text-left">Warranty Tenure:</div><div class="wrap-input100 validate-input m-b-16"><input class="input100" type="number" id="warranty_tenure" name="warranty_tenure" required placeholder="TENURE (in Months)"><span class="focus-input100"></span></div></div></div></div></div>';
+        document.getElementById("productDetailDiv").appendChild(additonalProduct);
+        var newScript = document.createElement("script");
+        var inlineScript = document.createTextNode('$(function () {$("#refDate' + i + '").daterangepicker({ locale: { format: "DD MMMM YYYY" }, opens: "center", singleDatePicker: true, showDropdowns: true, minYear: 1980, maxYear: parseInt(moment().format("YYYY"), 10), });});');
+        newScript.appendChild(inlineScript);
+        document.getElementById("productDetailDiv").appendChild(newScript);
+        i++;
+    }
+    function removeProductField(id){
+        document.getElementById(id).remove();
+    }
+
+</script>

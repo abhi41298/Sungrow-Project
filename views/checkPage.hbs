@@ -1,0 +1,119 @@
+<div class="container">
+    <form action="/userCheck" method="post" class="login100-form validate-form flex-sb flex-w p-b-90 p-t-50">
+        <div class="row ">
+            <div class="col">
+                <span class="login100-form-title p-b-51">
+                    Warranty Registration
+                </span>
+            </div>
+        </div>
+        <div class="row p-t-20 p-b-35">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="text-left">
+                    Invoice Number<span class="asterisk-required">*</span>
+                </div>
+                <div class="wrap-input100 validate-input m-b-16" data-validate="Email is required">
+                    <input class="input100" type="text" id="invoice" name='invoiceNumber' required
+                        placeholder="INVOICE NUMBER" autocomplete="on">
+                        <span class="focus-input100"></span>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="text-left">
+                    Email<span class="asterisk-required">*</span>
+                </div>
+                <div class="wrap-input100 validate-input m-b-16" data-validate="Email is required">
+                    <input class="input100" type="email" id="email" name="email" placeholder="EMAIL" style="text-transform: lowercase;"
+                        autocomplete="on">
+                        <span class="focus-input100"></span>
+                </div>
+            </div>
+            <div class="container-fluid border-alt p-t-20 p-b-20">
+                <div id="serialDiv" class="container">
+                    <div class="row d-inline-flex" style="overflow:scroll;vertical-align:middle;width:100%; ">
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <div class="text-left">
+                                Product Serial Number<span class="asterisk-required">*</span>
+                            </div>
+                            <div class="wrap-input100 validate-input m-b-16" data-validate="Email is required">
+                                <input class="input100" type="text" id="serial" name="serialNumber" required=""
+                                    placeholder="SERIAL NUMBER" autocomplete="on">
+                                    <span class="focus-input100"></span>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <div class="text-left">
+                                Installation Date<span class="asterisk-required">*</span>
+                            </div>
+                            <div class="wrap-input100 validate-input m-b-16">
+
+                                <script>
+                                    $(function () {
+                                        $('#date').daterangepicker({
+                                            locale: { format: "DD MMMM YYYY" },
+                                            opens: "center",
+                                            singleDatePicker: true,
+                                            showDropdowns: true,
+                                            minYear: 1980,
+                                            maxYear: parseInt(moment().format("YYYY"), 10),
+                                            maxDate: moment()
+                                        });
+                                    });
+                                </script>
+                                <input class="input100" type="text" name="installation" id="date">
+                                <span class="focus-input100"></span>
+
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+
+                    </div>
+                </div>
+                <div class="row" style="margin:auto;width:50%;">
+                    <div class="col">
+                        <div class="container-login100-form-btn">
+                            <input type="button" class="login100-form-btn login100-form-btn-alt"
+                                onclick=" createNewElement();" value="Add More" />
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="contact100-form-checkbox">
+            <input type="checkbox" class="input-checkbox100" id="ckb1" name="tnc" required>
+            <label class="label-checkbox100" for="ckb1">
+                I have read and agree to the <a href="#">Sungrow Terms &amp; Conditions</a>
+            </label>
+        </div>
+        <div class="row container content-justify-center">
+            <div class="container-login100-form-btn">
+                <button class="login100-form-btn m-t-17">
+                    Submit
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+<script type="text/javascript">
+    var i = 1;
+    function createNewElement() {
+        var txtNewInputBox = document.createElement('div');
+        txtNewInputBox.setAttribute('id','element'+i)
+        txtNewInputBox.innerHTML = '<div class="row d-inline-flex" style="overflow:scroll;vertical-align:middle;width:100%;"> <div class="col-lg-6 col-md-6 col-sm-12" style="min-width:280px;"> <div class="text-left"> Product Serial Number<span class="asterisk-required">*</span> </div><div class="wrap-input100 validate-input m-b-16" data-validate="Email is required"> <input class="input100" type="text" id="serial" name="serialNumber" required="" placeholder="SERIAL NUMBER" autocomplete="on"><span class="focus-input100"></span> </div></div><div class="col-lg-6 col-md-6 col-sm-12" style="min-width:280px;"> <div class="text-left"> Installation Date<span class="asterisk-required">*</span> </div><div class="wrap-input100 validate-input m-b-16"> <input class="input100" type="text" name="installation" id="date' + i + '" onload="DatePicker' + i + '()"> <span class="focus-input100"></span><\/div><\/div></div><div class="d-inline-flex close-icon" id="removeElement" onclick="removeElement(\'element' + i + '\');"><span class="fa fa-close fa-2x"></span></div>';
+        document.getElementById("serialDiv").appendChild(txtNewInputBox);
+        var newScript = document.createElement("script");
+        var inlineScript = document.createTextNode('$(function () {$("#date' + i + '").daterangepicker({locale: { format: "DD MMMM YYYY" },opens: "center",singleDatePicker: true,showDropdowns: true,minYear: 1980,maxYear: parseInt(moment().format("YYYY"), 10),});});');
+        newScript.appendChild(inlineScript);
+        document.getElementById("serialDiv").appendChild(newScript);
+        i++;
+    }
+
+    function removeElement(id){
+        document.getElementById(id).remove();
+    }
+
+</script>

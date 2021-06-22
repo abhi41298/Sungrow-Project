@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>SunGrow</title>
+  <!-- Links -->
+  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/css/simple-sidebar.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/css/util.css">
+  <link rel="stylesheet" type="text/css" href="/css/main.css">
+  <link rel="stylesheet" type="text/css" href="/css/searchbar.css">
+  <link rel="stylesheet" type="text/css" href="/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+  <script src="/vendor/jquery/jquery-3.4.1.min.js"></script>
+  <script src="/vendor/bootstrap/js/popper.min.js"></script>
+  <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/vendor/daterangepicker/moment.min.js"></script>
+  <script type="text/javascript" src="/vendor/daterangepicker/daterangepicker.js"></script>
+  <link rel="stylesheet" type="text/css" href="/vendor/daterangepicker/daterangepicker.css" />
+  <!--Links -->
+
+</head>
+
+<body>
+
+  <div class="d-flex" id="wrapper">
+    <!-- Sidebar -->
+    <div class="border-right" id="sidebar-wrapper" style="background-color: white;">
+      <div class="sidebar-heading m-b-30 m-t-30">
+        <img src="/img/sungrow-logo.svg" style="width: 200px;">
+      </div>
+      <div class="accordion">
+        <ul class="list-unstyled">
+          <li>
+            <a class="list-group-item list-group-item-action barOption" href="/admin/adminDash"><i class="fa fa-home"
+                aria-hidden="true" style="margin-right:10px;"></i>Dashboard</a>
+          </li>
+          <li>
+            <a class="list-group-item list-group-item-action barOption" href="/admin/moderatorApproval"><i
+                class="fa fa-check-circle" aria-hidden="true" style="margin-right:10px;"></i>Moderator's Approval</a>
+          </li>
+          <li class="active">
+            <a href="#warrantySubmenu" data-toggle="collapse" aria-expanded="false"
+              class="dropdown-toggle collapsed list-group-item list-group-item-action barOption"><i
+                class="fa fa-id-badge" aria-hidden="true" style="margin-right:10px;"></i>Warranty</a>
+            <ul class="list-unstyled collapse" id="warrantySubmenu" style="">
+              <li class="active">
+                <a class="list-group-item list-group-item-action barOption" id='pendingData'
+                  href='/admin/getPendingRequest'><i class="fa fa-bell" aria-hidden="true"
+                    style="margin-right:10px;"></i>Pending Request</a>
+              </li>
+              <li>
+                <a class="list-group-item list-group-item-action barOption" href="/admin/search/searchWarranty"
+                  id="searchWarranty"><i class="fa fa-search" aria-hidden="true"
+                    style="margin-right:10px;"></i>Search</a>
+              </li>
+            </ul>
+          </li>
+          <li class="active">
+            <a href="#invoiceSubmenu" data-toggle="collapse" aria-expanded="false"
+              class="dropdown-toggle collapsed list-group-item list-group-item-action barOption"><i
+                class="fa fa-file-text" aria-hidden="true" style="margin-right:10px;"></i>Invoice</a>
+            <ul class="list-unstyled collapse" id="invoiceSubmenu" style="">
+              <li>
+                <a class="list-group-item list-group-item-action barOption" href="/admin/add/addInvoicePage"><i
+                    class="fa fa-plus" aria-hidden="true" style="margin-right:10px;"></i>Add New Invoice</a>
+              </li>
+              <li>
+                <a class="list-group-item list-group-item-action barOption" href="/admin/search/searchInvoice"><i
+                    class="fa fa-search" aria-hidden="true" style="margin-right:10px;"></i>Search</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#customerSubmenu" data-toggle="collapse" aria-expanded="false"
+              class="dropdown-toggle list-group-item list-group-item-action barOption"><i class="fa fa-users"
+                aria-hidden="true" style="margin-right:10px;"></i>Customer</a>
+            <ul class="collapse list-unstyled" id="customerSubmenu">
+              <li>
+                <a class="list-group-item list-group-item-action barOption" href="/admin/add/addCustomerPage"><i
+                    class="fa fa-plus" aria-hidden="true" style="margin-right:10px;"></i>Add New Customer</a>
+              </li>
+              <li>
+                <a class="list-group-item list-group-item-action barOption" href="/admin/search/searchCustomer"><i
+                    class="fa fa-search" aria-hidden="true" style="margin-right:10px;"></i>Search</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#productSubmenu" data-toggle="collapse" aria-expanded="false"
+              class="dropdown-toggle collapsed list-group-item list-group-item-action barOption"><i
+                class="fa fa-industry" aria-hidden="true" style="margin-right:10px;"></i>Product</a>
+            <ul class="list-unstyled collapse" id="productSubmenu" style="">
+              <li>
+                <a class="list-group-item list-group-item-action barOption" href="/admin/add/addProductPage"
+                  id="addProduct"><i class="fa fa-plus" aria-hidden="true" style="margin-right:10px;"></i>Add New
+                  Product</a>
+              </li>
+              <li>
+                <a class="list-group-item list-group-item-action barOption" href="/admin/search/searchProduct"><i
+                    class="fa fa-search" aria-hidden="true" style="margin-right:10px;"></i>Search</a>
+              </li>
+            </ul>
+          </li>
+          <li class="active">
+            <a href="#projectSubmenu" data-toggle="collapse" aria-expanded="false"
+              class="dropdown-toggle collapsed list-group-item list-group-item-action barOption"><i
+                class="fa fa-sitemap" aria-hidden="true" style="margin-right:10px;"></i>Project</a>
+            <ul class="list-unstyled collapse" id="projectSubmenu" style="">
+              <li>
+                <a class="list-group-item list-group-item-action barOption" href="#"><i class="fa fa-plus"
+                    aria-hidden="true" style="margin-right:10px;"></i>Add New Project</a>
+              </li>
+              <li>
+                <a class="list-group-item list-group-item-action barOption" href="#"><i class="fa fa-list-alt"
+                    aria-hidden="true" style="margin-right:10px;"></i>Search Project</a>
+              </li>
+            </ul>
+          </li>
+          <li class="active">
+            <a href="#dealerSubmenu" data-toggle="collapse" aria-expanded="false"
+              class="dropdown-toggle collapsed list-group-item list-group-item-action barOption"><i class="fa fa-user"
+                aria-hidden="true" style="margin-right:10px;"></i>Dealer</a>
+            <ul class="list-unstyled collapse" id="dealerSubmenu" style="">
+              <li>
+                <a class="list-group-item list-group-item-action barOption" href="#"><i class="fa fa-plus"
+                    aria-hidden="true" style="margin-right:10px;"></i>Add New Dealer</a>
+              </li>
+              <li>
+                <a class="list-group-item list-group-item-action barOption" href="#"><i class="fa fa-search"
+                    aria-hidden="true" style="margin-right:10px;"></i>Search</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!--#sidebar-wrapper -->
+    <div class="ajax-loader">
+      <img src="/img/icons/ajax-loader.gif" class="img-responsive" />
+    </div>
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+
+      <nav class="navbar navbar-expand-lg navbar-orange border-bottom">
+        <a id="menu-toggle"><i class="fa fa-navicon fa-3x m-l-20"></i></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-user fa-2x"></i>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/admin/accountSettings" style="color: #000;">Account Setting</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" id='logout' href='/admin/logout' style="color: #000;">Logout</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="container-fluid">
+        {{{body}}}
+      </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+  </div>
+  <!-- /#wrapper -->
+
+
+
+  <!-- Menu Toggle Script -->
+  <script>
+    $("#menu-toggle").click(function (e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+  </script>
+
+</body>
+
+</html>

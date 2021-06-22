@@ -1,0 +1,42 @@
+@page {
+    size: A4;
+    margin-left: 3cm;
+    margin-right: 3cm;
+}
+
+body {
+    margin-left: 10%;
+    margin-right: 10%;
+    font-size: large;
+}
+
+img {
+    margin-top: 20px;
+    margin-right: 0px;
+}
+
+.container1 {
+    text-align: center;
+}
+
+.container3 {
+    width: fit-content;
+}
+
+.main-container {
+    margin-left: 10%;
+    margin-right: 10%;
+    text-size-adjust: 1.8;
+}
+
+p {
+    font-size: large;
+}
+
+a::before {
+    color: black;
+}
+
+.last {
+    text-align: center;
+}

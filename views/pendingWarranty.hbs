@@ -1,0 +1,216 @@
+<div class="container">
+    <div class="row p-b-20">
+        <div class="col-12">
+            <span class="asterisk-required">*</span><p class="d-inline">Before Approving Pending Request, please insert Product Details by going to  <strong>Product -> Add New Product</strong> then insert invoice by going to <strong>Inovice -> Add New Inovice</strong>
+                then approve the corresponding Pending Request.
+            </p>
+        </div>
+    </div>
+</div>
+{{#if pendingRequest}}
+{{#each pendingRequest}}
+<form action="/{{../role}}/approvePendingRequest" method="POST" id="form{{this.invoiceNumber}}">
+    <div class="panel-group m-b-15" id="div{{this.invoiceNumber}}" style="border:2px solid #ebc3a6;">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="panel-title p-l-25 p-r-25" style="background-color: #ebc3a6;">
+                    <a href="#{{this.invoiceNumber}}" data-toggle="collapse" role="button" aria-expanded="false"
+                        aria-controls="{{this.invoiceNumber}}">
+                        <div class="row list-user-collapse-header text-uppercase">
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <strong>Invoice Number: </strong>{{this.invoiceNumber}}
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <strong>Customer Name: </strong>{{this.name}}
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <strong>Mobile Number: </strong>{{this.phone}}
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <strong>Email: </strong>{{this.email}}
+                            </div>
+                            <input type="text" value="{{this.invoiceNumber}}" name="invoiceNumber"
+                                style="display: none;">
+                            <input type="text" value="{{this.name}}" name="name" style="display: none;">
+                            <input type="text" value="{{this.phone}}" name="phone" style="display: none;">
+                            <input type="text" value="{{this.email}}" name="email" style="display: none;">
+                        </div>
+                        <div style="display:inline-flex;color:#000;"><span class="fa fa-chevron-down"></span></div>
+
+                    </a>
+                </div>
+            </div>
+            <div id="{{this.invoiceNumber}}" class="panel-collapse collapse in">
+                <div class="panel-body p-l-25 p-r-25">
+                    <div class="row p-t-15">
+                        <div class="col-lg-4 col-md-12 col-sm-12">
+                            <div class="list text-uppercase">
+                                <ul>
+                                    <li><strong>Address: </strong>{{this.address}}</li>
+                                    <li><strong>District: </strong>{{this.district}}</li>
+                                    <li><strong>City: </strong>{{this.city}}</li>
+                                    <li><strong>State: </strong>{{this.state}}</li>
+                                    <li><strong>Country: </strong>{{this.country}}</li>
+                                    <li><strong>PIN: </strong>{{this.pin}}</li>
+                                    <input type="text" value="{{this.address}}" name="address" style="display: none;">
+                                    <input type="text" value="{{this.district}}" name="district" style="display: none;">
+                                    <input type="text" value="{{this.city}}" name="city" style="display: none;">
+                                    <input type="text" value="{{this.state}}" name="state" style="display: none;">
+                                    <input type="text" value='{{this.country}}' name="country" style="display: none;">
+                                    <input type="text" value="{{this.pin}}" name="pin" style="display: none;">
+                                    {{#if this.gstin}}
+                                    <li><strong>GSTIN:</strong>{{this.gstin}}</li>
+                                    <input type="text" value="{{this.gstin}}" name="gstin" style="display: none;">
+                                    {{/if}}
+                                </ul>
+                            </div>
+                        </div>
+                        <style>
+                            .input100 {
+                                font-size: 16px;
+                                padding: 0 4px 0 4px;
+                                height: 40px;
+                            }
+
+                            .table-bordered td {
+                                vertical-align: middle;
+                            }
+                        </style>
+
+                        <div class="col-lg-8 col-md-12 col-sm-12">
+                            <div class="table-responsive">
+                                {{#if this.serialNumbers}}
+                                <table class="table table-sm table-bordered"
+                                    style="width: 100%;border-collapse:collapse;">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th scope="col">
+                                                Serial Number
+                                            </th>
+                                            <th scope="col">
+                                                Installation Date
+                                            </th>
+                                            <th scope="col">
+                                                Warranty Ref. Date
+                                            </th>
+                                            <th scope="col">
+                                                Warranty Tenure(in months)
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        {{#each this.serialNumbers}}
+                                        <tr>
+                                            <td class="text-uppercase">{{this.serialNumber}}</td>
+                                            <td class="text-uppercase">{{this.installationDate}}</td>
+                                            <input type="text" value="{{this.serialNumber}}" name="serialNumbers"
+                                                style="display: none;">
+                                            <input type="text" value="{{this.installationDate}}" name="installationDate"
+                                                style="display: none;">
+                                            <td>
+                                                <div class="wrap-input100 validate-input">
+
+                                                    <script>
+                                                        $(function () {
+                                                            $('#date{{this.serialNumber}}').daterangepicker({
+                                                                locale: { format: "DD MMMM YYYY" },
+                                                                opens: "center",
+                                                                singleDatePicker: true,
+                                                                showDropdowns: true,
+                                                                minYear: 1980,
+                                                                maxYear: parseInt(moment().format("YYYY"), 10),
+                                                                maxDate: moment()
+                                                            });
+                                                        });
+                                                    </script>
+                                                    <input class="input100" type="text" name="warrantyReferenceDate"
+                                                        id="date{{this.serialNumber}}">
+
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="wrap-input100 validate-input">
+                                                    <input class="input100" type="number" id="tenure{{this.serialNumber}}" name="tenure"
+                                                        required>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        {{/each}}
+                                    </tbody>
+                                </table>
+                                {{/if}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row p-b-30">
+                        <div class="col-lg-6 col-md-6 col-sm-12 container-login100-form-btn">
+                            <button class="login100-form-btn m-t-17 " id="submit{{this.invoiceNumber}}" type="submit">
+                                Approve
+                            </button>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-12 container-login100-form-btn">
+
+                            <span class="text-center m-l-auto m-r-auto p-t-30">
+                                <p id="del{{invoiceNumber}}" style="font-size: 20px;cursor:pointer;">
+                                    <i class="fa fa-close"></i> Disapprove</p>
+                            </span>
+
+                        </div>
+                        <script>
+                            $(document).ready(function () {
+                                $("#submit{{this.invoiceNumber}}").on('click', function (e) {
+                                    var empty = false;
+                                    {{#each this.serialNumbers }}
+                                    if ($('#tenure{{this.serialNumber}}').val() === '' || $('#date{{this.serialNumber}}').val() === '') {
+                                        empty = true;
+                                    }
+                                    {{/each}}
+                                            if (!empty) {
+                                                e.preventDefault();
+                                                $('#approveModal').modal({
+                                                    backdrop: 'static',
+                                                    keyboard: false
+                                                })
+                                                    .one('click', '#approve', function (e) {
+                                                        $('#form{{this.invoiceNumber}}').submit();
+                                                    })
+                                            }
+                                        });
+                            });
+                        </script>
+                        <script>
+                            $(document).ready(function () {
+                                $("#del{{this.invoiceNumber}}").on('click', function (e) {
+                                    $('#disapproveModal').modal({
+                                        backdrop: 'static',
+                                        keyboard: false
+                                    })
+                                        .one('click', '#disapprove', function (e) {
+                                            $.ajax({
+                                                beforeSend: function () {
+                                                    $('.ajax-loader').css("visibility", "visible");
+                                                },
+                                                url: '/{{../role}}/disapprovePendingRequest/{{this.invoiceNumber}}',
+                                                type: 'DELETE',
+                                            })
+                                                .done(function () {
+                                                    $('#div{{this.invoiceNumber}}').remove();
+                                                    $('.ajax-loader').css("visibility", "hidden");
+                                                    $('#successModal').modal('show');
+                                                });
+                                        });
+                                    return false;
+                                });
+                            });
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+{{/each}}
+{{>modals}}
+{{/if}}

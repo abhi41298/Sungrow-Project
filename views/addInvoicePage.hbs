@@ -1,0 +1,182 @@
+<div class="container">
+    <form action="/{{role}}/add/addInvoice" method="post" class="login100-form validate-form flex-sb flex-w p-b-90 p-t-50">
+        <div class="row ">
+            <div class="col">
+                <span class="login100-form-title p-b-51">
+                    Add New Invoice
+                </span>
+            </div>
+        </div>
+        <div id="invoiceDetailDiv">
+            <div class="row p-t-20 p-b-35">
+                <div class="container-fluid p-t-20 p-b-20">
+                    <div class="container">
+                        <div class="row" style="overflow:scroll; ">
+                            <div class="col-lg-6 col-md-6 col-sm-12" style="min-width:280px;">
+                                <div class="text-left">
+                                    Invoice Number
+                                </div>
+                                <div class="wrap-input100 validate-input m-b-16">
+                                    <input class="input100" type="text" id="invoiceNumber" name="invoice_no" required
+                                        placeholder="INVOICE NUMBER">
+                                        <span class="focus-input100"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12" style="min-width:280px;">
+                                <div class="text-left">
+                                    Invoice Date
+                                </div>
+                                <div class="wrap-input100 validate-input m-b-16">
+                                    <input class="input100" type="text" name="invoice_date" id="invoiceDate" required>
+                                    <span class="focus-input100"></span>
+                                    <script>
+                                        $(function () {
+                                            $('#invoiceDate').daterangepicker({
+                                                locale: { format: "DD MMMM YYYY" },
+                                                opens: "center",
+                                                singleDatePicker: true,
+                                                showDropdowns: true,
+                                                minYear: 1980,
+                                                maxYear: parseInt(moment().format("YYYY"), 10),
+                                                maxDate: moment()
+                                            });
+                                        });
+                                    </script>
+
+
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-md-6 col-sm-12" style="min-width:280px;">
+                                <div class="text-left">
+                                    Customer Email
+                                </div>
+                                <div class="wrap-input100 validate-input m-b-16">
+                                    <input class="input100" type="email" id="email" name="customer_email" required
+                                        placeholder="CUSTOMER EMAIL">
+                                        <span class="focus-input100"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12" style="min-width:280px;">
+                                <div class="text-left">
+                                    Delivery Order Number
+                                </div>
+                                <div class="wrap-input100 validate-input m-b-16">
+                                    <input class="input100" type="text" id="deliveryOrderNo" name="delivery_order_no" required
+                                        placeholder="DELIVERY ORDER NUMBER">
+                                        <span class="focus-input100"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12" style="min-width:280px;">
+                                <div class="text-left">
+                                    PO Number
+                                </div>
+                                <div class="wrap-input100 validate-input m-b-16">
+                                    <input class="input100" type="text" id="poNo" name="po_no" required
+                                        placeholder="PO NUMBER">
+                                        <span class="focus-input100"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12" style="min-width:280px;">
+                                <div class="text-left">
+                                    PO Date
+                                </div>
+                                <div class="wrap-input100 validate-input m-b-16">
+                                    <input class="input100" type="text" name="po_date" id="poDate" required>
+                                    <span class="focus-input100"></span>
+                                    <script>
+                                        $(function () {
+                                            $('#poDate').daterangepicker({
+                                                locale: { format: "DD MMMM YYYY" },
+                                                opens: "center",
+                                                singleDatePicker: true,
+                                                showDropdowns: true,
+                                                minYear: 1980,
+                                                maxYear: parseInt(moment().format("YYYY"), 10),
+                                                maxDate: moment()
+                                            });
+                                        });
+                                    </script>
+
+
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12" style="min-width:280px;">
+                                <div class="text-left">
+                                    Part Number
+                                </div>
+                                <div class="wrap-input100 validate-input m-b-16">
+                                    <input class="input100" type="text" id="model" name="part_no" required
+                                        placeholder="PART NUMBER">
+                                        <span class="focus-input100"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12" style="min-width:280px;">
+                                <div class="text-left">
+                                    Material Description
+                                </div>
+                                <div class="wrap-input100 validate-input m-b-16" >
+                                    <input class="input100" type="text" id="model" name="material_description"
+                                        placeholder="MATERIAL DESCRIPTION">
+                                        <span class="focus-input100"></span>
+                                </div>
+                            </div>
+                            <div class="container-fluid border-alt p-t-20 p-b-20">
+                                <div id="serialDiv" class="container">
+                                    <div class="row" style="vertical-align:middle;overflow:scroll;width:100%;" id="addMoreSerialNo">
+                                        <div class="col-lg-6 col-md-6 col-sm-12" style="min-width:280px;" id="serial">
+                                            <div class="text-left d-inline-flex">Product Serial Number:</div>
+                                            <div class="wrap-input100 validate-input m-b-16">
+                                                <input class="input100" type="text" id="serial" name="serial_no"
+                                                    required="" placeholder="SERIAL NUMBER">
+                                                    <span class="focus-input100"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+
+                                    </div>
+                                </div>
+                                <div class="row" style="margin:auto;width:50%;">
+                                    <div class="col">
+                                        <div class="container-login100-form-btn">
+                                            <input type="button" class="login100-form-btn login100-form-btn-alt"
+                                                onclick=" addMoreSerialNo();" value="Add More">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="row container content-justify-center">
+            <div class="container-login100-form-btn">
+                <button class="login100-form-btn m-t-17">
+                    Add New Invoice
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+<script type="text/javascript">
+    var i = 1;
+    function addMoreSerialNo() {
+        var additonalProduct = document.createElement('div');
+        additonalProduct.className ='col-lg-6 col-md-6 col-sm-12';
+        additonalProduct.setAttribute('id','serial'+i)
+        additonalProduct.innerHTML = '<div class="text-left d-inline-flex">Product Serial Number:</div><div class="text-right close-icon d-inline-flex float-right" id="removeElement" onclick="removeElement(\'serial' + i + '\');"><span class="fa fa-close"></span></div><div class="wrap-input100 validate-input m-b-16"data-validate="Email is required"><input class="input100" type="text" id="serial" name="serial_no" required="" placeholder="SERIAL NUMBER" autocomplete="on"><span class="focus-input100"></span></div>';
+        document.getElementById("addMoreSerialNo").appendChild(additonalProduct);
+        i++;
+    }
+    function removeElement(id){
+        document.getElementById(id).remove();
+    }
+
+</script>

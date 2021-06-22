@@ -1,0 +1,53 @@
+{{#if searchResult}}
+<div class="table-responsive p-t-30 p-b-50">
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th colspan="2" scope="col" style="text-align: center;">
+                    Product Details
+                </th>
+            </tr>
+        </thead>
+        <tr>
+            <th scope="row">
+                Serial Number
+            </th>
+            <td class="text-uppercase">
+                {{searchResult.serial_no}}
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">
+                SG Reference Date
+            </th>
+            <td class="text-uppercase">
+                {{searchResult.sg_ref_date}}
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">
+                Model
+            </th>
+            <td class="text-uppercase">
+                {{searchResult.model}}
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">
+                Type
+            </th>
+            <td class="text-uppercase">
+                {{searchResult.type}}
+            </td>
+        </tr>
+
+    </table>
+</div>
+{{/if}}
+{{#if noneFound}}
+<div class="container">
+    <h3>
+        PRODUCT NOT FOUND
+    </h3>
+</div>
+{{/if}}

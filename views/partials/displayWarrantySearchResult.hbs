@@ -1,0 +1,53 @@
+{{#if searchResult}}
+<div class="table-responsive p-t-30">
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th colspan="2" scope="col" style="text-align: center;">
+                    Warranty Details
+                </th>
+            </tr>
+        </thead>
+        <tr>
+            <th scope="row">
+                Warranty Number
+            </th>
+            <td class="text-uppercase">
+                {{searchResult.warranty_no}}
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">
+                Warranty Number
+            </th>
+            <td class="text-uppercase">
+                {{searchResult.serial_no}}
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">
+                Warranty Reference Date
+            </th>
+            <td class="text-uppercase">
+                {{searchResult.warranty_date}}
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">
+                Warranty Tenure
+            </th>
+            <td class="text-uppercase">
+                {{searchResult.warranty_tenure}}
+            </td>
+        </tr>
+
+    </table>
+</div>
+{{/if}}
+{{#if noneFound}}
+<div class="container">
+    <h3>
+        NOT FOUND
+    </h3>
+</div>
+{{/if}}

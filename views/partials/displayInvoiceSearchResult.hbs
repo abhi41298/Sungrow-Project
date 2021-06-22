@@ -1,0 +1,99 @@
+{{#if searchResult}}
+<div class="row p-b-50">
+    {{#each searchResult}}
+    <div class="col-lg-6 col-md-12 col-sm-12">
+        <div class="table-responsive p-t-30">
+            <table class="table table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th colspan="2" scope="col" style="text-align: center;">
+                            Invoice Details
+                        </th>
+                    </tr>
+                </thead>
+                <tr>
+                    <th scope="row">
+                        Invoice Number
+                    </th>
+                    <td class="text-uppercase">
+                        {{this.invoice_no}}
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">
+                        Serial Number
+                    </th>
+                    <td class="text-uppercase">
+                        {{this.serial_no}}
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">
+                        Invoice Date
+                    </th>
+                    <td class="text-uppercase">
+                        {{this.invoice_date}}
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">
+                        Customer Email
+                    </th>
+                    <td>
+                        {{this.customer_email}}
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">
+                        Delivery Order Number
+                    </th>
+                    <td class="text-uppercase">
+                        {{this.delivery_order_no}}
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">
+                        Part Number
+                    </th>
+                    <td class="text-uppercase">
+                        {{this.part_no}}
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">
+                        PO Number
+                    </th>
+                    <td class="text-uppercase">
+                        {{this.po_no}}
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">
+                        PO Date
+                    </th>
+                    <td class="text-uppercase">
+                        {{this.po_date}}
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">
+                        Material Description
+                    </th>
+                    <td class="text-uppercase">
+                        {{this.material_description}}
+                    </td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+    {{/each}}
+</div>
+{{/if}}
+{{#if noneFound}}
+<div class="container">
+    <h3>
+        INVOICE NOT FOUND
+    </h3>
+</div>
+{{/if}}

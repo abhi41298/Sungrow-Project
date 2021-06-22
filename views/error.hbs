@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Sungrow - Error</title>
+	<link type="text/css" rel="stylesheet" href="/css/main.css" />
+</head>
+
+<body>
+	{{#if error_message}}
+	<div id="notfound">
+		<div class="notfound">
+			<div class="notfound-404">
+				<h1>ERROR</h1>
+			</div>
+			<h2>{{error_message.heading}}</h2>
+			<p>{{error_message.msg}}</p>
+            <a href="{{error_message.link}}">Return Back</a>
+		</div>
+	</div>
+
+	{{/if}}
+	{{#unless error_message}}
+	<div id="notfound">
+		<div class="notfound">
+			<div class="notfound-404">
+				<h1>ERROR</h1>
+			</div>
+			<h2>Oops! Something went wrong!</h2>
+			<p>The page you are trying to reach can't be accessed right now. There might some error occured, we suggest you to try again after sometime.</p>
+            <p><a href="/">Return to homepage</a></p>
+		</div>
+	</div>
+	{{/unless}}
+</body>
+
+</html>

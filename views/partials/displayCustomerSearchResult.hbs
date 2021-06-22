@@ -1,0 +1,102 @@
+{{#if searchResult}}
+<div class="table-responsive p-t-30 p-b-50">
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th colspan="2" scope="col" style="text-align: center;">
+                    User Details
+                </th>
+            </tr>
+        </thead>
+        <tr>
+            <th scope="row">
+                Customer Name
+            </th>
+            <td class="text-uppercase">
+                {{searchResult.name}}
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">
+                Email
+            </th>
+            <td>
+                {{searchResult.email}}
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">
+                Phone
+            </th>
+            <td class="text-uppercase">
+                {{searchResult.phone}}
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">
+                Address
+            </th>
+            <td class="text-uppercase">
+                {{searchResult.address}}
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">
+                District
+            </th>
+            <td class="text-uppercase">
+                {{searchResult.district}}
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">
+                City
+            </th>
+            <td class="text-uppercase">
+                {{searchResult.city}}
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">
+                State
+            </th>
+            <td class="text-uppercase">
+                {{searchResult.state}}
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">
+                Country
+            </th>
+            <td class="text-uppercase">
+                {{searchResult.country}}
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">
+                PIN
+            </th>
+            <td class="text-uppercase">
+                {{searchResult.pin}}
+            </td>
+        </tr>
+        {{#if searchResult.gstin}}
+        <tr>
+            <th scope="row">
+                GSTIN
+            </th>
+            <td class="text-uppercase">
+                {{searchResult.gstin}}
+            </td>
+        </tr>
+        {{/if}}
+    </table>
+</div>
+{{/if}}
+{{#if noneFound}}
+<div class="container">
+    <h3>
+        CUSTOMER NOT FOUND
+    </h3>
+</div>
+{{/if}}

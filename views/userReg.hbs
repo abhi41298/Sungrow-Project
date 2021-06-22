@@ -1,0 +1,161 @@
+<div class="container">
+    <form action="/submitWarrantyRequest" method="post"
+        class="login100-form validate-form flex-sb flex-w p-b-90 p-t-50">
+        <div style="display: none;">
+            <input type="text" value="{{previousData.invoiceNumber}}" name="invoiceNumber" />
+            <input type="text" value="{{previousData.email}}" name="email" />
+            {{#each previousData.serialNumber}}
+            <input type="text" value="{{this}}" name="serialNumber" />
+            {{else}}
+            <input type="text" value="{{previousData.serialNumber}}" name="serialNumber" />
+            {{/each}}
+            {{#each previousData.installation}}
+            <input type="text" value="{{this}}" name="installationDate" />
+            {{else}}
+            <input type="text" value="{{previousData.installation}}" name="installation" />
+            {{/each}}
+        </div>
+        <div class="row container">
+            <div class="col">
+                <span class="login100-form-title p-b-51">
+                    Warranty Registration
+                </span>
+            </div>
+        </div>
+        <div class="row container">
+            <h3>
+                User Details
+            </h3>
+        </div>
+        <div class="row container p-t-20">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="text-left">
+                    Full Name<span class="asterisk-required">*</span>
+                </div>
+                <div class="wrap-input100 validate-input m-b-16" data-validate="Full Name is required">
+                    <input class="input100" type="text" id="name" name='name' required placeholder="FULL NAME"
+                        autocomplete="on">
+                        <span class="focus-input100"></span>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="text-left">
+                    Mobile Number<span class="asterisk-required">*</span>
+                </div>
+                <div class="wrap-input100 validate-input m-b-16" data-validate="Mobile Number is required">
+                    <input class="input100" type="number" id="name" name="phone" placeholder="MOBILE" autocomplete="on"
+                        required>
+                        <span class="focus-input100"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row container">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="text-left">
+                    GSTIN
+                </div>
+                <div class="wrap-input100 validate-input m-b-16" data-validate="Email is required">
+                    <input class="input100" type="text" id="gstin" name="gstin" placeholder="GSTIN" autocomplete="on">
+                    <span class="focus-input100"></span>
+                </div>
+                
+            </div>
+        </div>
+        <div class="row container p-t-40">
+            <h3>
+                User Address
+            </h3>
+        </div>
+        <div class="row container p-t-20">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="text-left">
+                    House/Office Address<span class="asterisk-required">*</span>
+                </div>
+                <div class="wrap-input100 validate-input m-b-16" data-validate="Email is required">
+                    <input class="input100" type="text" id="address" name='address' required
+                        placeholder="HOUSE/OFFICE NUMBER" autocomplete="on">
+                        <span class="focus-input100"></span>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="text-left">
+                    Street Number
+                </div>
+                <div class="wrap-input100 validate-input m-b-16" data-validate="Email is required">
+                    <input class="input100" type="text" id="street" name="street" placeholder="STREET NUMBER"
+                        autocomplete="on">
+                        <span class="focus-input100"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row container">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="text-left">
+                    District<span class="asterisk-required">*</span>
+                </div>
+                <div class="wrap-input100 validate-input m-b-16" data-validate="Email is required">
+                    <input class="input100" type="text" id="district" name='district' required placeholder="DISTRICT"
+                        autocomplete="on">
+                        <span class="focus-input100"></span>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="text-left">
+                    City<span class="asterisk-required">*</span>
+                </div>
+                <div class="wrap-input100 validate-input m-b-16" data-validate="Email is required">
+                    <input class="input100" type="text" id="city" name='city' required placeholder="CITY"
+                        autocomplete="on">
+                        <span class="focus-input100"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row container">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="text-left">
+                    State<span class="asterisk-required">*</span>
+                </div>
+                <div class="wrap-input100 validate-input m-b-16" data-validate="Email is required">
+                    <input class="input100" type="text" id="state" name="state" placeholder="STATE" required
+                        autocomplete="on">
+                        <span class="focus-input100"></span>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="text-left">
+                    PIN Code<span class="asterisk-required">*</span>
+                </div>
+                <div class="wrap-input100 validate-input m-b-16" data-validate="PIN is required">
+                    <input class="input100" type="text" id="pin" name="pin" required placeholder="PIN CODE"
+                        autocomplete="on">
+                        <span class="focus-input100"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row container">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="text-left">
+                    Country<span class="asterisk-required">*</span>
+                </div>
+                <div class="wrap-input100 validate-input m-b-16" data-validate="Email is required">
+                    <input class="input100" type="text" id="country" name="country" required placeholder="COUNTRY"
+                        autocomplete="on">
+                        <span class="focus-input100"></span>
+                </div>
+            </div>
+        </div>
+        <div class="contact100-form-checkbox">
+            <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me" required>
+            <label class="label-checkbox100" for="ckb1">
+                I hereby certify that the above details are true and correct to the best of my knowledge.
+            </label>
+        </div>
+        <div class="row container content-justify-center">
+            <div class="container-login100-form-btn">
+                <button class="login100-form-btn m-t-17">
+                    Submit
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

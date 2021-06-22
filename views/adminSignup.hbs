@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>SUNGROWPOWER LOGIN</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="/img/icons/favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/util.css">
+	<link rel="stylesheet" type="text/css" href="/css/main.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	
+</head>
+
+<body>
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100 p-t-50 p-b-90">
+				<div class="login100-pic js-tilt" data-tilt>
+					<img src="/img/sungrow-logo.svg" alt="IMG" class="rounded mx-auto d-block">
+				</div>
+
+				<form action='/admin/submit' method='post' class="login100-form validate-form flex-sb flex-w p-t-60">
+					<span class="login100-form-title p-b-51">
+						ADMIN SIGN-UP
+					</span>
+							<div id="val" style="width:125%;"> {{>messages}}</div>
+							<div id="register"> </div>
+                    <div class="wrap-input100 validate-input m-b-16" data-validate = "Valid Name is required">
+                        <input class="input100" type="text" id='fullName' name="full_name" placeholder="FULL NAME" required>
+						<span class="focus-input100"></span>
+                    </div>
+                    
+                    <div class="wrap-input100 validate-input m-b-16" data-validate = "Valid Number is required">
+                        <input class="input100" type="text" id='phoneNumber' name="phone_number" placeholder="MOBILE" required>
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-16" >
+						<input class="input100" type="email" id='email' name="email" style="text-transform: lowercase;" placeholder="EMAIL" required>
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Password is required">
+						<input class="input100" id="password" type="password" name="password" style="text-transform: none;" placeholder="PASSWORD" required>
+						<span class="focus-input100"></span>
+					</div>
+						<p id='pass'></p>
+                    <div class="wrap-input100 validate-input m-b-16" data-validate = "Password did not match">
+						<input class="input100" type="password" id='confirmPassword' name="confirm_password" style="text-transform: none;" placeholder="CONFIRM PASSWORD" required>
+						<span class="focus-input100"></span>
+					</div>
+					<p id='checkpass'></p>
+					<div class="container-login100-form-btn m-t-17">
+						<button class="login100-form-btn">
+							SIGN UP
+						</button>
+					</div>
+					<div class="text-center">
+						<a class="txt2" href="/admin/">
+							Already Have An Account? Login!
+							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+						</a>
+					</div>
+					<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true"><div class="modal-dialog modal-sm"><div class="modal-content">...</div></div></div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+	<script>
+	 $(document).ready(function(){
+		 $('#pass').hide()
+		 $('#checkpass').hide()
+		 var pass_err = true
+		 var check_err =true
+		 $('#password').keyup(function(){
+			 pass_Check()
+		 })
+		 $('#confirmPassword').keyup(function(){
+			 confirm_Pass()
+		 })
+		 function pass_Check(){
+			 var passval = $('#password').val().length
+			 if(passval<8){
+				 $('#pass').show()
+				 $('#pass').html('password length is less than 8')
+				 $('#pass').focus()
+				 $('#pass').css('color','red')
+				 pass_err = false
+				 return false
+			 }else{
+				 $('#pass').hide()
+			 }
+		 }
+		 function confirm_Pass(){
+			 var confirmval = $('#confirmPassword').val()
+			 var passval = $('#password').val()
+			 if(confirmval != passval){
+				$('#checkpass').show()
+				 $('#checkpass').html('confirm password is not same')
+				 $('#checkpass').focus()
+				 $('#checkpass').css('color', 'red')
+				 check_err = false
+				 return false
+			 }else{
+				 $('#checkpass').hide()
+			 }
+		 }
+		 $('button').click(function(){
+			pass_err = true
+		 	check_err =true
+		 	 pass_Check()
+			confirm_Pass()
+			if(pass_err && check_err){
+				return true
+			}else{
+				return false
+			}
+
+		 })
+		 const notify = $('#val').text()
+		 $('.close').click(function(){
+			 $('#val').hide()
+		})
+		
+	 })
+	</script>
+
+</body>
+
+</html>
